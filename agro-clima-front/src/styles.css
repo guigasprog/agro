@@ -1,0 +1,179 @@
+/* Tailwind */
+@import 'tailwindcss';
+@import "maplibre-gl/dist/maplibre-gl.css";
+@import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
+/* =========================
+   🌙 BASE DARK THEME
+========================= */
+body {
+  background: #0b1220;
+  color: #e2e8f0;
+  font-family: Roboto, sans-serif;
+}
+
+/* =========================
+   🧾 ANGULAR MATERIAL FIXES
+========================= */
+
+/* texto dos inputs */
+.mdc-text-field input,
+.mdc-text-field textarea {
+  color: #e2e8f0 !important;
+}
+
+/* label */
+.mdc-floating-label {
+  color: rgba(148, 163, 184, 0.8) !important;
+}
+
+/* borda padrão */
+.mdc-notched-outline__leading,
+.mdc-notched-outline__notch,
+.mdc-notched-outline__trailing {
+  border-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+/* foco (verde = operação ok 🌱) */
+.mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: #22c55e !important;
+}
+
+/* hover (azul = info clima 🌧️) */
+.mdc-text-field:hover .mdc-notched-outline__leading,
+.mdc-text-field:hover .mdc-notched-outline__notch,
+.mdc-text-field:hover .mdc-notched-outline__trailing {
+  border-color: #38bdf8 !important;
+}
+
+/* =========================
+   🔽 SELECT
+========================= */
+.mat-mdc-select-value {
+  color: #e2e8f0 !important;
+}
+
+.mat-mdc-option {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.mat-mdc-option:hover {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+/* =========================
+   🔘 BOTÕES
+========================= */
+button.mat-mdc-raised-button {
+  background: linear-gradient(135deg, #0ea5e9, #22c55e);
+  color: #022c22;
+}
+
+/* =========================
+   🧊 CARDS
+========================= */
+.card-dark {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* =========================
+   🔤 ICONES
+========================= */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-size: 24px;
+}
+
+/* =========================
+   📦 DIALOG
+========================= */
+.dark-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.dark-dialog .mat-mdc-dialog-container {
+  --mdc-dialog-container-color: transparent;
+  background: transparent !important;
+}
+/* painel do dropdown (overlay) */
+.cdk-overlay-pane .mat-mdc-select-panel {
+  background: #0f172a !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+.mat-mdc-option {
+  background: #0f172a !important;
+  color: #e2e8f0 !important;
+}
+
+.mat-mdc-option:hover {
+  background: rgba(56, 189, 248, 0.1) !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background: rgba(34, 197, 94, 0.2) !important;
+}
+
+/* texto interno da option */
+.mat-mdc-option .mdc-list-item__primary-text {
+  color: #e2e8f0 !important;
+}
+.mat-mdc-select-arrow {
+  color: #94a3b8 !important;
+}
+
+/* remove setas no Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* remove no Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.mdc-button__label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+
+.mat-mdc-form-field.field-error .mdc-notched-outline__leading,
+.mat-mdc-form-field.field-error .mdc-notched-outline__notch,
+.mat-mdc-form-field.field-error .mdc-notched-outline__trailing {
+  border-color: #f87171 !important;
+}
+
+.mat-mdc-form-field.field-error .mat-mdc-floating-label {
+  color: #f87171 !important;
+}
+/* Remove os estilos padrão do Material Snackbar para o nosso customizado brilhar */
+.custom-error-snackbar {
+  --mdc-snackbar-container-color: transparent;
+  --mat-snack-bar-button-color: transparent;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.custom-error-snackbar .mdc-snackbar__surface {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+

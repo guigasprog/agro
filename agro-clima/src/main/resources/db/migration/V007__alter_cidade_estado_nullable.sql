@@ -1,0 +1,2 @@
+ALTER TABLE area_agricola ALTER COLUMN cidade DROP NOT NULL;
+ALTER TABLE area_agricola ALTER COLUMN estado DROP NOT NULL;

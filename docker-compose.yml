@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:15-3.4
+    container_name: postgres_sad
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-sad_agricultura}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./agro-clima
+    container_name: java_backend
+    ports:
+      - "${BACKEND_PORT:-8080}:${PORT:-8080}"
+    depends_on:
+      - db
+    environment:
+      PORT: ${PORT:-8080}
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL:-jdbc:postgresql://db:5432/sad_agricultura}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-postgres}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-*}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./agro-clima-front
+    container_name: angular_frontend
+    ports:
+      - "${FRONTEND_PORT:-4200}:80"
+    depends_on:
+      - backend
+    environment:
+      BACKEND_HOST: ${BACKEND_HOST:-backend}
+      BACKEND_PORT: ${PORT:-8080}
+      API_URL: ${API_URL:-}
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
