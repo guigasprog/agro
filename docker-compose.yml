@@ -44,6 +44,7 @@ services:
       BACKEND_HOST: backend
       BACKEND_PORT: ${PORT:-8080}
       API_URL: ""
+      NGINX_ENVSUBST_FILTER: "BACKEND_"
     restart: unless-stopped
 
 volumes:
