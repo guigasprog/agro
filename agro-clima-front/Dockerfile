@@ -24,7 +24,7 @@ RUN chmod +x /docker-entrypoint.d/40-generate-env.sh
 # Variáveis padrão para o proxy reverso e filtro do envsubst
 ENV BACKEND_HOST=backend \
     BACKEND_PORT=8080 \
-    NGINX_ENVSUBST_FILTER="BACKEND_HOST BACKEND_PORT"
+    NGINX_ENVSUBST_FILTER="BACKEND_"
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
